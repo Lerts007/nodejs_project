@@ -9,6 +9,6 @@
   "author": "Lerts",
   "license": "ISC",
   "dependencies": {
-    "cowsay": "^1.5.0"
+    "currency-converter-lt": "^2.0.0-beta.0"
   }
 }
