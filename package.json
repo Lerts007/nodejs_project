@@ -1,0 +1,19 @@
+{
+  "name": "nodejs_project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lerts007/nodejs_project.git"
+  },
+  "author": "Lerts",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lerts007/nodejs_project/issues"
+  },
+  "homepage": "https://github.com/Lerts007/nodejs_project#readme"
+}
