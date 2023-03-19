@@ -1,7 +1,13 @@
-const CC = require("currency-converter-lt");
+const os = require('os');
 
-let currencyConverter = new CC({ from: "USD", to: "RUB", amount: 100 });
+let res = os.platform()
 
-currencyConverter.convert().then((response) => {
-  console.log(response);
-});
+console.log(res);
+
+
+const my_math = require('./my_math')
+
+
+
+console.log(my_math.add(5,6));
+console.log(my_math.minus(5,6));
