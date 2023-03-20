@@ -1,11 +1,27 @@
-const fs = require("fs");
+const http = require("http");
 
-//Создание папки с файлом
-// fs.mkdir("text-files", () => {
-//   fs.writeFile("./text-files/some.txt", "Hello", () => {});
-// });
+let server = http.createServer((req, res) => {
+  res.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
+  res.end(`
+  <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Node JS</title>
+      </head>
+      <body>
+        <h1>Hello Node!</h1>
+      </body>
+    </html>
 
-//Удаление папки. Удалить папку с содержимым нельзя, нужно сначала удалить её содержимое, а после папку
-fs.unlink("./text-files/some.txt", () => {
-  fs.rmdir("./text-files", () => {});
+  `);
+});
+
+const PORT = 3000;
+const HOST = "localhost";
+
+server.listen(PORT, HOST, () => {
+  console.log(`Сервер запущен: http://${HOST}:${PORT}`);
 });
