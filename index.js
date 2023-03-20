@@ -1,13 +1,7 @@
-const os = require('os');
+const fs = require("fs");
 
-let res = os.platform()
-
-console.log(res);
-
-
-const my_math = require('./my_math')
-
-
-
-console.log(my_math.add(5,6));
-console.log(my_math.minus(5,6));
+fs.readFile("some.txt", "utf-8", (err, data) => {
+  fs.writeFile("some.txt", data + "\nSome.txt", (err, data) => {
+    console.log("Все сработало!");
+  });
+});
