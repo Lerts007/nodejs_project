@@ -1,18 +1,21 @@
-const http = require("http");
-const fs = require("fs");
+const express = require("express");
 
-let server = http.createServer((req, res) => {
-  res.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
+const app = express();
 
-  if (req.url === "/") fs.createReadStream("./templates/index.html").pipe(res);
-  else if (req.url === "/about")
-    fs.createReadStream("./templates/about.html").pipe(res);
-  else fs.createReadStream("./templates/error.html").pipe(res);
+app.get("/", (req, res) => {
+  res.send("this home page");
+});
+
+app.get("/about", (req, res) => {
+  res.send("this about page");
+});
+
+app.get("/user/:userName/:userId", (req, res) => {
+  res.send(`User ID: ${req.params.userId}. User name: ${req.params.userName}`);
 });
 
 const PORT = 3000;
-const HOST = "localhost";
 
-server.listen(PORT, HOST, () => {
-  console.log(`Сервер запущен: http://${HOST}:${PORT}`);
+app.listen(PORT, () => {
+  console.log("Server startd: http://localhost:3000");
 });
