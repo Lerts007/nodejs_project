@@ -4,6 +4,7 @@ const app = express();
 
 app.set("view engine", "ejs");
 
+app.use(express.urlencoded({ extended: false }));
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
@@ -20,6 +21,12 @@ app.get("/user/:userName", (req, res) => {
     hobbies: ["Football", "Skate", "Basketball"],
   };
   res.render("user", data);
+});
+
+app.post("/check-user", (req, res) => {
+  let userName = req.body.userName;
+  if (userName === "") return res.redirect("/");
+  else return res.redirect("/user/" + userName);
 });
 
 const PORT = 3000;
