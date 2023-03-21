@@ -2,16 +2,22 @@ const express = require("express");
 
 const app = express();
 
+app.set("view engine", "ejs");
+
 app.get("/", (req, res) => {
-  res.send("this home page");
+  res.render("index");
 });
 
 app.get("/about", (req, res) => {
-  res.send("this about page");
+  res.render("about");
 });
 
-app.get("/user/:userName/:userId", (req, res) => {
-  res.send(`User ID: ${req.params.userId}. User name: ${req.params.userName}`);
+app.get("/user/:userName", (req, res) => {
+  let data = {
+    userName: req.params.userName,
+    hobbies: ["Football", "Skate", "Basketball"],
+  };
+  res.render("user", data);
 });
 
 const PORT = 3000;
